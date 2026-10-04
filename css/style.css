@@ -1,0 +1,531 @@
+/* -----------------------------------------------------
+  1. IMPORT FONTS & VARIABLES
+----------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;700&display=swap');
+
+:root {
+  --maroon: #780000;
+  --fire-red: #C1121F;
+  --cream: #FDF0D5;
+  --navy: #003049;
+  --sky-blue: #669BBC;
+
+  --text-color: var(--navy);
+  --bg-color: var(--cream);
+  --btn-bg: var(--fire-red);
+  --btn-hover: var(--maroon);
+  --highlight: var(--sky-blue);
+  --shadow: rgba(0, 0, 0, 0.12);
+}
+
+/* -----------------------------------------------------
+  2. BASE STYLES
+----------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Merienda', cursive;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* -----------------------------------------------------
+  3. LINKS & BUTTONS
+----------------------------------------------------- */
+a, .btn, button {
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary,
+button.btn-primary {
+  background-color: var(--btn-bg);
+  color: white;
+  padding: 0.6em 1.2em;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.95rem;
+  transition: background 0.3s;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-hover);
+}
+
+/* -----------------------------------------------------
+  4. NAVBAR
+----------------------------------------------------- */
+.navbar {
+  background-color: var(--maroon);
+  color: white;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+  padding-left: 0;
+  gap: 1em;
+  align-items: center;
+}
+
+.navbar ul li {
+  margin: 0;
+}
+
+.navbar ul li a {
+  color: white;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  background-color: var(--sky-blue);
+  color: var(--navy);
+}
+
+.navbar a {
+  color: white;
+  margin-left: 1em;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: var(--sky-blue);
+}
+
+/* -----------------------------------------------------
+  5. HERO SECTION
+----------------------------------------------------- */
+.hero {
+  background: url('/online-laptop-store/images/hero-bg.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.hero p {
+  margin-bottom: 2em;
+}
+
+.hero .btn-primary {
+  padding: 0.8em 1.5em;
+  display: inline-block;
+}
+
+.hero .btn-primary:hover {
+  background-color: var(--btn-hover);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+}
+
+/* -----------------------------------------------------
+  6. PRODUCT SECTION
+----------------------------------------------------- */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.products-section {
+  background: var(--cream);
+  padding: 20px 10px 40px;
+  border-radius: 10px;
+}
+
+.box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.box {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.box:hover {
+  transform: translateY(-8px);
+}
+
+.product-image {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  user-select: none;
+  border: 2px solid black;
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 1.3;
+  min-height: 2.6em;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--fire-red);
+  margin-bottom: 10px;
+}
+
+.quantity-input {
+  width: 60px;
+  padding: 6px 8px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.message.info {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  padding: 40px 0;
+}
+
+/* -----------------------------------------------------
+  7. TABLE STYLES (CART, ORDERS)
+----------------------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 4px 6px var(--shadow);
+}
+
+th, td {
+  padding: 0.8em;
+  border: 1px solid var(--sky-blue);
+  text-align: center;
+}
+
+th {
+  background: var(--navy);
+  color: white;
+  text-transform: uppercase;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--cream);
+}
+
+td img {
+  max-width: 80px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* -----------------------------------------------------
+  8. FORMS
+----------------------------------------------------- */
+input,
+textarea,
+select,
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-control.quantity-input {
+  width: 100%;
+}
+
+/* -----------------------------------------------------
+  9. ALERTS & MESSAGES
+----------------------------------------------------- */
+.message,
+.alert {
+  padding: 1em;
+  border-radius: 4px;
+  margin-bottom: 1.2em;
+}
+
+.message.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.message.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* -----------------------------------------------------
+  10. FOOTER
+----------------------------------------------------- */
+footer {
+  background-color: var(--maroon);
+  color: white;
+  padding: 1.5em 2em;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: var(--sky-blue);
+}
+
+/* -----------------------------------------------------
+  11. UTILITIES & REUSABLE
+----------------------------------------------------- */
+.container {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 0 20px;
+}
+
+/* -----------------------------------------------------
+  12. RESPONSIVE
+----------------------------------------------------- */
+@media (max-width: 768px) {
+  .box-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  td img {
+    max-width: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .box-container {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar a {
+    margin: 0.5em 0;
+  }
+}
+
+/* -----------------------------------------------------
+  13. ADMIN DASHBOARD STYLES
+----------------------------------------------------- */
+.admin-header {
+  background-color: #780000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Merienda', cursive;
+}
+
+.admin-content {
+  max-width: 800px;
+  background: white;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #aaa;
+  font-family: 'Merienda', cursive;
+  color: var(--text-color);
+}
+
+.admin-content h2 {
+  margin-bottom: 10px;
+}
+
+.admin-content p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.admin-nav {
+  list-style: none;
+  padding-left: 0;
+}
+
+.admin-nav li {
+  margin-bottom: 10px;
+}
+
+.admin-nav li a {
+  color: var(--btn-bg);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.admin-nav li a:hover {
+  color: var(--btn-hover);
+}
+
+.logout-link {
+  color: red;
+  font-weight: 700;
+}
+
+.logout-link:hover {
+  color: #a10000;
+}
+/* ----------------------------------------------
+   CART PAGE FIXES
+---------------------------------------------- */
+
+.cart-item {
+  background: #fef3d5;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Fix cart image size */
+.cart-item img {
+  max-width: 220px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Product title */
+.cart-item .name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+/* Product price */
+.cart-item .price {
+  font-size: 1.1rem;
+  color: var(--fire-red);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Quantity input */
+.cart-item input[type="number"],
+.cart-item .quantity-input {
+  width: 60px;
+  padding: 6px 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Subtotal */
+.cart-item .subtotal {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #444;
+}
+
+/* Buttons container */
+.cart-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+/* Button shared styles */
+.cart-buttons .btn,
+.cart-buttons .btn-primary,
+.cart-buttons .btn-remove {
+  padding: 0.6em 1.2em;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+/* Update button */
+.cart-buttons .btn-primary {
+  background-color: var(--btn-bg);
+  color: white;
+}
+
+.cart-buttons .btn-primary:hover {
+  background-color: var(--btn-hover);
+}
+
+/* Remove button */
+.cart-buttons .btn-remove {
+  background-color: crimson;
+  color: white;
+}
+
+.cart-buttons .btn-remove:hover {
+  background-color: #a10000;
+}
+@media (max-width: 480px) {
+  .cart-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cart-item img {
+    max-width: 160px;
+  }
+}
